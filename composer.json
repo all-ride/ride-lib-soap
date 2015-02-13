@@ -1,0 +1,21 @@
+{
+    "name": "ride/lib-soap",
+    "description": "SOAP library of the Ride framework",
+    "license": "MIT",
+    "version": "0.1.1",
+    "authors": [
+        {
+            "name": "Joris Vandeweerd",
+            "email": "joris@statik.be"
+        }
+    ],
+    "require": {
+        "ride/lib-http": ">=0.3.6",
+        "ride/lib-http-client": ">=0.1.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "ride\\library\\soap\\": ["src/", "test/src/"]
+        }
+    }
+}
