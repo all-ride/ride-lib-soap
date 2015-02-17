@@ -49,10 +49,6 @@ class SoapClient extends PhpSoapClient {
             'SOAPAction' => '"' . $action . '"',
         );
 
-        print_r($action);
-
-        print_r(htmlspecialchars($request));
-
         $response = $this->httpClient->post($location, $request, $headers);
 
         $statusCode = $response->getStatusCode();
