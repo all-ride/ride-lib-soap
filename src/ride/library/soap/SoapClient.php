@@ -4,7 +4,6 @@ namespace ride\library\soap;
 
 use ride\library\http\client\Client as HttpClient;
 use ride\library\http\exception\HttpException;
-use ride\library\http\Response;
 
 use \SoapClient as PhpSoapClient;
 
@@ -50,9 +49,9 @@ class SoapClient extends PhpSoapClient {
         );
 
         $response = $this->httpClient->post($location, $request, $headers);
+        if (!$response->isOk()) {
+            $statusCode = $response->getStatusCode();
 
-        $statusCode = $response->getStatusCode();
-        if ($statusCode != Response::STATUS_CODE_OK) {
             throw new HttpException('Request returned ' . $statusCode . ': ' . $response->getStatusPhrase($statusCode) . ' - ' . $response->getBody());
         }
 
